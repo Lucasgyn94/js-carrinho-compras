@@ -7,6 +7,18 @@ const adicionar = () => {
     let precoProduto = produto.value.split("R$")[1];
     let quantidade = document.getElementById("quantidade").value;
 
+    /*Adicione validações no código para garantir que o usuário só consiga adicionar produtos ao carrinho se tiver selecionado um produto válido e inserido uma quantidade válida. Se a entrada não for válida, exiba uma mensagem de erro apropriada. */
+
+    if (!nomeProduto || nomeProduto.trim() === "") {
+        alert('Selecione um produto válido!');
+        exit();
+    }
+
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert('Insira uma quantidade válida!');
+        exit();
+    }
+
     console.log(`Produto: ${produto.value}`);
     console.log(`Nome produto: ${nomeProduto}`);
     console.log(`Preço produto: ${precoProduto}`);
